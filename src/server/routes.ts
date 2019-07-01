@@ -34,4 +34,13 @@ router.post('/api/chirps', async (req, res) => {
     }
 });
 
+router.delete('/api/chirps/:id', async (req, res) => {   
+    try {
+        res.json((await db.Chirps.remove(req.params.id)));
+    } catch (error) {
+        console.log(error);
+        res.sendStatus(500);
+    }
+});
+
 export default router;

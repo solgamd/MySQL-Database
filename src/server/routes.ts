@@ -16,13 +16,22 @@ router.get('/api/chirps', async (req, res) => {
     }
 });
 
-router.get('/api/chirps/:id', async (req, res) => {   // Need to add Query on chirps.ts
+router.get('/api/chirps/:id', async (req, res) => {   
     try {
-        res.json(await db.Chirps.all());
+        res.json((await db.Chirps.one(req.params.id))[0]);
     } catch (error) {
         console.log(error);
         res.sendStatus(500);
     }
 });
+
+// router.post('/api/chirps', async (req, res) => {   
+//     try {
+//         res.json((await db.Chirps.one(req.params.id))[0]);
+//     } catch (error) {
+//         console.log(error);
+//         res.sendStatus(500);
+//     }
+// });
 
 export default router;

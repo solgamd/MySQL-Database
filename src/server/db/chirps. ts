@@ -1,7 +1,0 @@
-import { Query } from './index';
-
-const all = async () => Query('SELECT * FROM chirper');
-
-export default {
-    all
-}

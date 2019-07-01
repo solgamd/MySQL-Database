@@ -25,13 +25,13 @@ router.get('/api/chirps/:id', async (req, res) => {
     }
 });
 
-// router.post('/api/chirps', async (req, res) => {   
-//     try {
-//         res.json((await db.Chirps.one(req.params.id))[0]);
-//     } catch (error) {
-//         console.log(error);
-//         res.sendStatus(500);
-//     }
-// });
+router.post('/api/chirps', async (req, res) => {   
+    try {
+        res.json((await db.Chirps.post(req.body.chirp, req.body.userid, req.body.location)));
+    } catch (error) {
+        console.log(error);
+        res.sendStatus(500);
+    }
+});
 
 export default router;

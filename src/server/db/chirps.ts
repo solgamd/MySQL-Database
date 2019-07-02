@@ -10,11 +10,15 @@ const post = async (chirp: string, userid: number, location: string) => {
 
 const remove = async (id: number) => Query('DELETE FROM chirps WHERE id = ?', [id]);
 
+const update = async (id: number, chirp: string) => {
+    return Query('UPDATE chirps SET chirp = ? WHERE id = ' + id + '', [chirp])
+};
 
 
 export default {
     all,
     one,
     post,
-    remove
+    remove,
+    update
 }

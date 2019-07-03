@@ -1,8 +1,8 @@
 import { Query } from './index';
 
-const all = async () => Query('SELECT * FROM chirps');
+const all = async () => Query('SELECT users.name, chirps.* FROM chirps JOIN users ON users.id = chirps.userid');
 
-const one = async (id: number) => Query('SELECT * FROM chirps WHERE id = ?', [id]);
+const one = async (id: number) => Query('SELECT users.name, chirps.* FROM chirps JOIN users ON users.id = chirps.userid WHERE id = ?', [id]);
 
 const post = async (chirp: string, userid: number, location: string) => {
     return Query('INSERT INTO chirps (chirp, userid, location) value (?)', [chirp, userid, location])

@@ -14,10 +14,9 @@ const App: React.SFC<IAppProps> = () => {
         <Router>
             <main className="container">
                 <Switch>
-                    <Route exact path="/api/chirps" component={Home} />
-                    <Route exact path="/api/chirps/:id" component={ChirpCard} />
-                    <Route exact path="/api/chirps/new" component={NewChirp} />
-
+                    <Route exact path="/" component={Home} />
+                    <Route exact path="/:id" component={ChirpCard} />
+                    <Route exact path="/new" component={NewChirp} />
                 </Switch>
             </main>
         </Router>

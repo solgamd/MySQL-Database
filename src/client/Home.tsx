@@ -18,25 +18,14 @@ const Home: React.SFC<IHomeState> = () => {
     const getChirps = async () => {
         try {
             let r = await fetch('/api/chirps');
-            let data = await r.json();
-            let chirps = Object.keys(data).map(key => {
-                return {
-                    id: key,
-                    user: data[key].user,
-                    text: data[key].text
-                }
-            });
-            chirps.pop();
-            chirps.reverse();
+            let chirps = await r.json();
             setChirps(chirps);
         } catch (err) {
             console.log(err);
         }
     }
 
-    useEffect(() => {
-        getChirps();
-    }, []);
+    useEffect(() => { getChirps(); }, []);
 
     return (
         <section className="row m-3 justify-content-center">

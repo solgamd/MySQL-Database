@@ -17,13 +17,17 @@ const NewChirp: React.SFC<INewChirpState> = () => {
     const [ chirpUser, setChirpUser ] = useState<string>(''); 
     const [ chirpText, setChirpText] = useState<string>('');
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        this.props.history.push('/');
+    }
 
     return(
         <section className="row mt-5">
             <div className="col-md-8">
                 <div className="card mb-5">
                     <h4 className="card-title d-flex">Write a Chirp</h4>
-                    <form action="" className="form-group">
+                    <form onSubmit={handleSubmit} className="form-group">
                         <label>Username:</label>
                         <input 
                             className="form-control mb-4"

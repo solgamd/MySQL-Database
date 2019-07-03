@@ -1,35 +1,27 @@
 import * as React from 'react';
-
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './scss/app';
+import Home from './Home';
+import ChirpCard from './ChirpCard';
+import NewChirp from './NewChirp';
 
-export default class App extends React.Component<IAppProps, IAppState> {
 
-    constructor(props: IAppProps) {
-        super(props);
+interface IAppProps { }
 
-        this.state = { name: null };
-    }
+const App: React.SFC<IAppProps> = () => {
 
-    async componentWillMount() {
-        let r = await fetch('/api/hello');
-        let name = await r.json();
-        this.setState({ name })
-    }
-
-    render () {
-        return (
+    return (
+        <Router>
             <main className="container">
-                <h1 className="covalence-blue">Hello {this.state.name}!</h1>
-                <h2></h2>
+                <Switch>
+                    <Route exact path="/api/chirps" component={Home} />
+                    <Route exact path="/api/chirps/:id" component={ChirpCard} />
+                    <Route exact path="/api/chirps/new" component={NewChirp} />
+
+                </Switch>
             </main>
-        )
-    }
+        </Router>
+    )
 }
 
-interface IAppProps {
-
-}
-
-interface IAppState {
-    name: string;
-}
+export default App;

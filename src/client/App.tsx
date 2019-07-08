@@ -16,7 +16,7 @@ const App: React.SFC<IAppProps> = () => {
             <main className="container">
                 <Switch>
                     <Route exact path="/" component={Home} />
-                    <Route exact path="/:id" component={ChirpCard} />
+                    <Route exact path="/:id/details" component={ChirpCard} />
                     <Route exact path="/new" component={NewChirp} />
                     {/* <Route exact path="/:id/edit" component={EditChirp} /> */}
                 </Switch>

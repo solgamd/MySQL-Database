@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
+import { RouteComponentProps } from 'react-router';
 
-interface INewChirpProps { }
+interface INewChirpProps extends RouteComponentProps{ }
 interface INewChirpState {
     chirps: {
         userid: number,
@@ -13,7 +14,7 @@ interface INewChirpState {
     location: string
 }
 
-const NewChirp: React.SFC<INewChirpState> = () => {
+const NewChirp: React.SFC<INewChirpProps> = props => {
 
     const [chirpUser, setChirpUser] = useState<string>('');
     const [chirpText, setChirpText] = useState<string>('');
@@ -21,24 +22,21 @@ const NewChirp: React.SFC<INewChirpState> = () => {
 
     const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
+        let newPost = { 
+            chirp: chirpText,
+            userid: chirpUser,
+            location: chirpLoc
+        }
         try {
-            let res = await fetch('/api/chirps/');
-            let newPost = res.json();
-            let chirps = Object.keys(newPost).map(key => {
-                return {
-                    id: key,
-                    userid: newPost[key].userid,
-                    chirp: newPost[key].chirp,
-                    location: newPost[key].location
-                }
-            });
+            let res = await fetch('/api/chirps/', {
+                method: 'POST',
+                headers: { "Content-type": "application/json" },
+                body: JSON.stringify(newPost)
+            })
         } catch (error) {
             console.log(error);
         };
-        setChirpUser(this.chirps.userid);
-        setChirpText(this.chirps.chirp);
-        setChirpLoc(this.chirps.location);
-        this.props.history.push('/');
+        props.history.push('/');
     }
 
     return (

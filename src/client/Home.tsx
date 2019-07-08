@@ -14,7 +14,7 @@ interface IHomeState {
 
 const Home: React.SFC<IHomeState> = () => {
 
-    const [chirps, setChirps] = useState([]); //which type?
+    const [chirps, setChirps] = useState([]); 
  
     const getChirps = async () => {
         try {

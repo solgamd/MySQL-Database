@@ -5,31 +5,24 @@ import { useState, useEffect } from 'react';
 export interface EditChirpProps extends RouteComponentProps<{ id: string }>{
 }
 
-export interface EditChirpState {
-    chirp: {
-        name: string,
-        chirp: string,
-    }[],
-    text: string
-}
-
 const EditChirp: React.SFC<EditChirpProps> = (props) => {
 
     const [ newText, setText ] = useState<string>(); //need the original chirp text as placeholder
+    const [ userName, setUserName ] = useState<string>();
 
-    const updateChirp = async () => {
+    const getChirp = async () => {
         let id = props.match.params.id;
         try {
             let res = await fetch(`/api/chirps/${id}`);
             let chirp = await res.json();
-            setText(chirp);
+            setText(chirp.chirp);
+            setUserName(chirp.name);
         } catch (error) {
             console.log(error);
         }
     }
 
-
-    useEffect(() => { updateChirp(); }, [])
+    useEffect(() => { getChirp(); }, [])
 
     return (
         <section className="row">
@@ -39,10 +32,7 @@ const EditChirp: React.SFC<EditChirpProps> = (props) => {
                         <h4 className="card-title">Your Chirp</h4>
                         <form action="" className="form-group">
                             <label>Username:</label>
-                            <input 
-                                className="form-control"
-                                value={this.state.name}
-                            />
+                            <p>{userName}</p>
                             <label>Chirp:</label>
                             <input
                                 className="form-control"
@@ -54,7 +44,6 @@ const EditChirp: React.SFC<EditChirpProps> = (props) => {
                 </div>
             </article>
         </section>
-
       );
 }
  

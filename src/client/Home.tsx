@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import ChirpCard from './ChirpCard';
+import { Link } from 'react-router-dom';
 
 interface IHomeProps { }
 interface IHomeState {
@@ -19,15 +20,18 @@ const Home: React.SFC<IHomeState> = () => {
         try {
             let r = await fetch('/api/chirps');
             let chirps = await r.json();
+            chirps.reverse();
             setChirps(chirps);
         } catch (err) {
             console.log(err);
-        }
+        };
     }
 
     useEffect(() => { getChirps(); }, []);
 
     return (
+        <>
+        <Link to="/new" className="btn btn-primary shadow-sm ">Write A Chirp</Link> 
         <section className="row m-3 justify-content-center">
             <div className="col-12 d-flex justify-content-center">
                 <h1>Chirps Feed</h1>
@@ -38,6 +42,7 @@ const Home: React.SFC<IHomeState> = () => {
                 ))}
             </div>
         </section>
+        </>
     );
 }
 

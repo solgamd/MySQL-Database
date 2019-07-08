@@ -27,7 +27,7 @@ router.get('/api/chirps/:id', async (req, res) => {
 
 router.post('/api/chirps', async (req, res) => {   
     try {
-        res.json((await db.Chirps.post(req.body.chirp, req.body.userid, req.body.location)));
+        res.json((await db.Chirps.post(req.body.userid, req.body.chirp, req.body.location)));
     } catch (error) {
         console.log(error);
         res.sendStatus(500);

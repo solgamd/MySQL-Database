@@ -4,8 +4,8 @@ const all = async () => Query('SELECT users.name, chirps.* FROM chirps JOIN user
 
 const one = async (id: number) => Query('SELECT users.name, chirps.* FROM chirps JOIN users ON users.id = chirps.userid WHERE userid = ?', [id]);
 
-const post = async (chirp: string, userid: number, location: string) => {
-    return Query('INSERT INTO chirps (chirp, userid, location) value (?)', [chirp, userid, location])
+const post = async (userid: number, chirp: string, location: string) => {
+    return Query('INSERT INTO chirps (userid, chirp, location) value (?)', [userid, chirp,location])
 };
 
 const remove = async (id: number) => Query('DELETE FROM chirps WHERE id = ?', [id]);

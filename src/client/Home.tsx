@@ -36,7 +36,7 @@ const Home: React.SFC<IHomeState> = () => {
             <div className="col-12 d-flex justify-content-center">
                 <h1>Chirps Feed</h1>
             </div>
-            <div className="col-8">
+            <div className="col-9">
                 {chirps.map(chirp => (
                     <ChirpCard key={chirp.id} chirp={chirp} />
                 ))}

@@ -39,7 +39,7 @@ const EditChirp: React.SFC<EditChirpProps> = props => {
         } catch (error) {
             console.log(error);
         };
-        props.history.push('/');
+        this.props.history.push('/');
     }
 
     const handleDelete = async (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -53,7 +53,7 @@ const EditChirp: React.SFC<EditChirpProps> = props => {
         } catch (error) {
             console.log(error);
         };
-        props.history.replace('/');
+        this.props.history.replace('/');
     }
 
     useEffect(() => { getChirp(); }, [props.match.params.id])

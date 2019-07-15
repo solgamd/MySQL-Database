@@ -52,4 +52,24 @@ router.put('/api/chirps/:id', async (req, res) => {
     }
 });
 
+router.get('/api/mentions/:userid', async (req, res) => {
+    try {
+        let [r]: any = await db.Mentions.getUserMentions(req.params.userid);
+        res.json(r);
+    } catch (error) {
+        console.log(error);
+        res.sendStatus(500);
+    }
+});
+
+router.get('/api/users/', async (req, res) => {
+    try {
+        let r: any = await db.Users.getAllUsers();
+        res.json(r);
+    } catch (error) {
+        console.log(error);
+        res.sendStatus(500);
+    }
+})
+
 export default router;

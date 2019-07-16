@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
 import { useState, useEffect } from 'react';
+import Navbar from './Navbar';
 
 export interface EditChirpProps extends RouteComponentProps<{ id: string }>{
 }
@@ -59,6 +60,8 @@ const EditChirp: React.SFC<EditChirpProps> = props => {
     useEffect(() => { getChirp(); }, [props.match.params.id])
 
     return (
+        <>
+        <Navbar />
         <section className="row">
             <article className="col-md-6 offset-3">
                 <div className="card m-1">
@@ -80,6 +83,7 @@ const EditChirp: React.SFC<EditChirpProps> = props => {
                 </div>
             </article>
         </section>
+        </>
       );
 }
  

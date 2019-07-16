@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { RouteComponentProps } from 'react-router';
+import Navbar from './Navbar';
 
 interface INewChirpProps extends RouteComponentProps{ }
 interface INewChirpState {
@@ -40,6 +41,8 @@ const NewChirp: React.SFC<INewChirpProps> = props => {
     }
 
     return (
+        <>
+        <Navbar />
         <section className="row mt-5">
             <div className="col-md-8">
                 <div className="card mb-5">
@@ -68,6 +71,7 @@ const NewChirp: React.SFC<INewChirpProps> = props => {
                 </div>
             </div>
         </section>
+        </>
     );
 }
 

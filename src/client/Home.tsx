@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import ChirpCard from './ChirpCard';
-import { Link } from 'react-router-dom';
+import Navbar from './Navbar';
 
 interface IHomeProps { }
 interface IHomeState {
@@ -31,7 +31,8 @@ const Home: React.SFC<IHomeState> = () => {
 
     return (
         <>
-        <Link to="/new" className="btn btn-primary shadow-sm ">Write A Chirp</Link> 
+        <Navbar />
+
         <section className="row m-3 justify-content-center">
             <div className="col-12 d-flex justify-content-center">
                 <h1>Chirps Feed</h1>

@@ -20,7 +20,7 @@ const ChirpCard: React.SFC<IChirpCardProps> = props => {
                     <h4 className="card-title">{props.chirp.name}</h4>
                     <p className="card-text">Says: {props.chirp.chirp}</p>
                     <p className="card-text">Sent from: {props.chirp.location}</p>
-                    <Link to={`/${props.chirp.id}/edit`} className="btn btn-secondary shadow-sm">Change Up Your Chirp</Link>
+                    <Link to={`/${props.chirp.id}/edit`} className="btn btn-secondary shadow-sm">Edit Your Chirp</Link>
                 </div>
             </div>
         </article>

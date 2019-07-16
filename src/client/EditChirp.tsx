@@ -76,8 +76,8 @@ const EditChirp: React.SFC<EditChirpProps> = props => {
                                 value={newText}
                                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => setText(e.target.value)}
                             />
-                            <button onClick={e => handleUpdate(e)} className="btn btn-primary m-1 shadow">Update Chirp</button>
-                            <button onClick={e => handleDelete(e)} className="btn btn-danger m-1 shadow">Delete Chirp</button>
+                            <button onClick={e => handleUpdate(e)} className="btn m-1 shadow">Update Chirp</button>
+                            <button onClick={e => handleDelete(e)} className="btn btn-delete m-1 shadow">Delete Chirp</button>
                         </form>
                     </div>
                 </div>

@@ -14,13 +14,13 @@ interface IChirpCardProps {
 const ChirpCard: React.SFC<IChirpCardProps> = props => {
     
     return (
-        <article className="col-9 offset-3">
+        <article className="col-8 offset-2">
             <div className="card m-1 shadow">
                 <div className="card-body">
                     <h4 className="card-title">{props.chirp.name}</h4>
                     <p className="card-text">Says: {props.chirp.chirp}</p>
                     <p className="card-text">Sent from: {props.chirp.location}</p>
-                    <Link to={`/${props.chirp.id}/edit`} className="btn btn-secondary shadow-sm">Edit Your Chirp</Link>
+                    <Link to={`/${props.chirp.id}/edit`} className="btn btn-edit shadow-sm">Edit Your Chirp</Link>
                 </div>
             </div>
         </article>

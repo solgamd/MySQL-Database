@@ -34,8 +34,8 @@ const Home: React.SFC<IHomeState> = () => {
         <Navbar />
 
         <section className="row m-3 justify-content-center">
-            <div className="col-12 d-flex justify-content-center">
-                <h1>Chirps Feed</h1>
+            <div className="col-9 d-flex justify-content-center">
+                <h2 className="my-3">Your Feed</h2>
             </div>
             <div className="col-9">
                 {chirps.map(chirp => (

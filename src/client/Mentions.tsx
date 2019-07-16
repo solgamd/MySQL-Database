@@ -36,11 +36,11 @@ const Mentions: React.SFC<MentionsProps> = (props) => {
         <>
         <Navbar />
         <section className="row mt-5">
-            <div className="col-md-8">
+            <div className="col-8 offset-2">
                 <div className="card m-5 p-3 shadow">
-                    <h4 className="card-title d-flex my-2 mb-3">Mentions</h4>
+                    <h3 className="card-title d-flex my-2 mb-3">Mentions</h3>
                     <div>
-                        <select className="custom-select mb-3"
+                        <select className="custom-select mb-4 mt-4"
                         value={selectedUser}
                         onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setSelectedUser( e.target.value )}>
                             <option>Select a User</option>
@@ -51,7 +51,7 @@ const Mentions: React.SFC<MentionsProps> = (props) => {
                             })}
                         </select>
                         <button
-                            className="btn btn-secondary"
+                            className="btn"
                             type="button"
                             onClick={() => getMentions()}>
                             Get Mentions

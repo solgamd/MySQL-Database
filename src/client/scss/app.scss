@@ -1,5 +1,29 @@
-@import '../../../node_modules/bootstrap/scss/bootstrap.scss';
+$fontly: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
-.covalence-blue {
-    color: #0091ea;
+$yellow: #fab013;
+$blue: #688ece;
+$green: #99d9ea;
+
+// @import '../../../node_modules/bootstrap/scss/bootstrap.scss';
+
+main {
+    font-family: $fontly;
+    h2 {
+        color: $green;
+    }
+}
+
+.navbar {
+    background-color: $yellow;
+}
+
+.btn {
+    background-color: $blue;
+}
+
+.btn-edit {
+    color: black;
+}
+.btn-delete {
+    background-color: red !important; 
 }

@@ -44,10 +44,10 @@ const NewChirp: React.SFC<INewChirpProps> = props => {
         <>
         <Navbar />
         <section className="row mt-5">
-            <div className="col-md-8">
-                <div className="card mb-5">
-                    <h4 className="card-title d-flex">Write a Chirp</h4>
-                    <form className="form-group">
+            <div className="col-8 offset-2">
+                <div className="card mb-5 shadow">
+                    <h3 className="card-title d-flex m-3">Write a Chirp</h3>
+                    <form className="form-group m-3">
                         <label>User:</label>
                         <input
                             className="form-control mb-4"
@@ -66,7 +66,7 @@ const NewChirp: React.SFC<INewChirpProps> = props => {
                             value={chirpLoc}
                             onChange={(e: React.ChangeEvent<HTMLInputElement>) => setChirpLoc(e.target.value)}
                         />
-                        <button onClick={(e) => handleSubmit(e)} className="btn btn-primary m-1">Post Your Chirp</button>
+                        <button onClick={(e) => handleSubmit(e)} className="btn m-1">Post Your Chirp</button>
                     </form>
                 </div>
             </div>

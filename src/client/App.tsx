@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import './scss/app';
+import './scss/app.scss';
 import Home from './Home';
 import ChirpCard from './ChirpCard';
 import NewChirp from './NewChirp';

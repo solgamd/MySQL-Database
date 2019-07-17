@@ -6,8 +6,8 @@ export interface MentionsProps { }
 
 const Mentions: React.SFC<MentionsProps> = (props) => {
 
-    const [users, setUsers] = useState<{id: string, name: string}[]>([]);
-    const [mentions, setMentions] = useState<{id: string, chirp: string}[]>([]);
+    const [users, setUsers] = useState<{ id: string, name: string }[]>([]);
+    const [mentions, setMentions] = useState<{ id: string, chirp: string }[]>([]);
     const [selectedUser, setSelectedUser] = useState<string>("");
 
     const getUsers = async () => {
@@ -34,37 +34,41 @@ const Mentions: React.SFC<MentionsProps> = (props) => {
 
     return (
         <>
-        <Navbar />
-        <section className="row mt-5">
-            <div className="col-8 offset-2">
-                <div className="card m-5 p-3 shadow">
-                    <h3 className="card-title d-flex my-2 mb-3">Mentions</h3>
-                    <div>
-                        <select className="custom-select mb-4 mt-4"
-                        value={selectedUser}
-                        onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setSelectedUser( e.target.value )}>
-                            <option>Select a User</option>
-                            {users.map(user => {
+            <Navbar />
+            <section className="row mt-5">
+                <div className="col-8 offset-2">
+                    <div className="card m-5 p-3 shadow">
+                        <h3 className="card-title d-flex my-2 mb-3">Mentions</h3>
+                        <div>
+                            <select className="custom-select mb-4 mt-4"
+                                value={selectedUser}
+                                onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setSelectedUser(e.target.value)}>
+                                <option>Select a User</option>
+                                {users.map(user => {
+                                    return (
+                                        <option key={user.id} value={user.id}>{user.name}</option>
+                                    )
+                                })}
+                            </select>
+                            <button
+                                className="btn mb-5"
+                                type="button"
+                                onClick={() => getMentions()}>
+                                Get Mentions
+                            </button>
+                            {mentions.map(mention => {
                                 return (
-                                    <option key={user.id} value={user.id}>{user.name}</option>
+                                    <div className="card m-1 shadow">
+                                        <div className="card-body">
+                                            <h5 className="card-text" key={mention.id}>{mention.chirp}</h5>
+                                        </div>
+                                    </div>
                                 )
                             })}
-                        </select>
-                        <button
-                            className="btn"
-                            type="button"
-                            onClick={() => getMentions()}>
-                            Get Mentions
-                        </button>
-                        {mentions.map(mention => {
-                            return (
-                                <p key={mention.id} >{mention.chirp}</p>
-                            )
-                        })}
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
         </>
     )
 }

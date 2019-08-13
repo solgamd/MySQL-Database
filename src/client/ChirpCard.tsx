@@ -17,9 +17,9 @@ const ChirpCard: React.SFC<IChirpCardProps> = props => {
         <article className="col-8 offset-2">
             <div className="card m-1 shadow">
                 <div className="card-body">
-                    <h4 className="card-title">{props.chirp.name}</h4>
-                    <p className="card-text">Says: {props.chirp.chirp}</p>
-                    <p className="card-text">Sent from: {props.chirp.location}</p>
+                    <h4 className="card-title mb-3">{props.chirp.name}</h4>
+                    <h5 className="card-text">Says: {props.chirp.chirp}</h5>
+                    <p className="card-text mb-4">Sent from: {props.chirp.location}</p>
                     <Link to={`/${props.chirp.id}/edit`} className="btn btn-edit shadow-sm">Edit Your Chirp</Link>
                 </div>
             </div>

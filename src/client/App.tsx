@@ -7,7 +7,6 @@ import NewChirp from './NewChirp';
 import EditChirp from './EditChirp';
 import Mentions from './Mentions';
 
-
 interface IAppProps { }
 
 const App: React.SFC<IAppProps> = () => {

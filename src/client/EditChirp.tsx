@@ -3,8 +3,7 @@ import { RouteComponentProps } from 'react-router';
 import { useState, useEffect } from 'react';
 import Navbar from './Navbar';
 
-export interface EditChirpProps extends RouteComponentProps<{ id: string }>{
-}
+export interface EditChirpProps extends RouteComponentProps<{ id: string }>{ }
 
 const EditChirp: React.SFC<EditChirpProps> = props => {
 
@@ -50,11 +49,12 @@ const EditChirp: React.SFC<EditChirpProps> = props => {
             let res = await fetch(`/api/chirps/${id}`, {
                 method: 'DELETE',
                 headers: { 'Content-type': 'application/json'},
-            })
+            });
+            this.props.history.push('/');
         } catch (error) {
             console.log(error);
         };
-        this.props.history.replace('/');
+        
     }
 
     useEffect(() => { getChirp(); }, [props.match.params.id])
@@ -64,9 +64,9 @@ const EditChirp: React.SFC<EditChirpProps> = props => {
         <Navbar />
         <section className="row">
             <article className="col-md-6 offset-3">
-                <div className="card m-1">
+                <div className="card m-1 mt-5 shadow">
                     <div className="card-body">
-                        <h4 className="card-title">Your Chirp</h4>
+                        <h4 className="card-title mb-2">Your Chirp</h4>
                         <form action="" className="form-group">
                             <label>Username:</label>
                             <p>{userName}</p>
@@ -76,8 +76,8 @@ const EditChirp: React.SFC<EditChirpProps> = props => {
                                 value={newText}
                                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => setText(e.target.value)}
                             />
-                            <button onClick={e => handleUpdate(e)} className="btn m-1 shadow">Update Chirp</button>
-                            <button onClick={e => handleDelete(e)} className="btn btn-delete m-1 shadow">Delete Chirp</button>
+                            <button onClick={e => handleUpdate(e)} className="btn mr-1 my-2">Update Chirp</button>
+                            <button onClick={e => handleDelete(e)} className="btn btn-delete ml-2 my-2">Delete Chirp</button>
                         </form>
                     </div>
                 </div>

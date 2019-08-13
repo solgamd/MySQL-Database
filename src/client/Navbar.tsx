@@ -19,7 +19,7 @@ const Navbar: React.SFC<NavbarProps> = () => {
                         <Link to="/" className="btn nav-link">Home</Link>
                     </li>
                     <li className="nav-item m-3">
-                        <Link to="/new" className="btn nav-link shadow-sm">Write A Chirp</Link>
+                        <Link to="/new" className="btn nav-link shadow-sm">New Chirp</Link>
                     </li>
                     <li className="nav-item m-3">
                         <Link to="/mentions" className="btn nav-link shadow-sm">Mentions</Link>

@@ -4,15 +4,8 @@ import ChirpCard from './ChirpCard';
 import Navbar from './Navbar';
 
 interface IHomeProps { }
-interface IHomeState {
-    chirps: {
-        user: string,
-        text: string,
-        id: string
-    }[],
-}
 
-const Home: React.SFC<IHomeState> = () => {
+const Home: React.SFC<IHomeProps> = () => {
 
     const [chirps, setChirps] = useState([]); 
  
@@ -20,7 +13,6 @@ const Home: React.SFC<IHomeState> = () => {
         try {
             let r = await fetch('/api/chirps');
             let chirps = await r.json();
-            chirps.reverse();
             setChirps(chirps);
         } catch (err) {
             console.log(err);
@@ -35,7 +27,7 @@ const Home: React.SFC<IHomeState> = () => {
 
         <section className="row m-3 justify-content-center">
             <div className="col-9 d-flex justify-content-center">
-                <h2 className="my-3">Your Feed</h2>
+                <h3 className="my-3">Your Chirp Feed</h3>
             </div>
             <div className="col-9">
                 {chirps.map(chirp => (

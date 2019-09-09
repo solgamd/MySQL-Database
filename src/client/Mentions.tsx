@@ -34,7 +34,6 @@ const Mentions: React.SFC<MentionsProps> = (props) => {
 
     return (
         <>
-            <Navbar />
             <section className="row mt-5">
                 <div className="col-8 offset-2">
                     <div className="card m-2 p-3 shadow">

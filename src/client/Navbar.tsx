@@ -9,12 +9,12 @@ export interface NavbarProps {
 const Navbar: React.SFC<NavbarProps> = () => {
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-yellow">
-            <a className="navbar-brand">Chirper</a>
-            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <a className="navbar-brand mr-auto">Chirper</a>
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>
-            <div className="collapse navbar-collapse" id="navbarNav">
-                <ul className="navbar-nav">
+            <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul className="navbar-nav justify-content-end">
                     <li className="nav-item m-3">
                         <Link to="/" className="btn nav-link">Home</Link>
                     </li>

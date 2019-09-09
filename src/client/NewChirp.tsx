@@ -32,7 +32,6 @@ const NewChirp: React.SFC<INewChirpProps> = props => {
 
     return (
         <>
-        <Navbar />
         <section className="row mt-5">
             <div className="col-8 offset-2">
                 <div className="card mb-5 shadow">

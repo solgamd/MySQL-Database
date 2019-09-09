@@ -6,6 +6,7 @@ import ChirpCard from './ChirpCard';
 import NewChirp from './NewChirp';
 import EditChirp from './EditChirp';
 import Mentions from './Mentions';
+import Navbar from './Navbar';
 
 interface IAppProps { }
 
@@ -13,6 +14,7 @@ const App: React.SFC<IAppProps> = () => {
 
     return (
         <Router>
+            <Navbar />
             <main className="container">
                 <Switch>
                     <Route exact path="/" component={Home} />

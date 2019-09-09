@@ -61,7 +61,6 @@ const EditChirp: React.SFC<EditChirpProps> = props => {
 
     return (
         <>
-        <Navbar />
         <section className="row">
             <article className="col-md-6 offset-3">
                 <div className="card m-1 mt-5 shadow">

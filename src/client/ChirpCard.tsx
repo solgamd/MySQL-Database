@@ -14,8 +14,8 @@ interface IChirpCardProps {
 const ChirpCard: React.SFC<IChirpCardProps> = props => {
     
     return (
-        <article className="col-8 offset-2">
-            <div className="card m-1 shadow">
+        <article className="col">
+            <div className="card m-3 shadow">
                 <div className="card-body">
                     <h4 className="card-title mb-3">{props.chirp.name}</h4>
                     <h5 className="card-text">Says: {props.chirp.chirp}</h5>
